@@ -6,7 +6,6 @@ function Layout(){
 
         </div>
         <div className="content">
-            
         </div>
     </div>
     </>

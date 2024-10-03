@@ -1,6 +1,21 @@
-.login_container{
-    padding: 100px 200px;
+#login_container{
+    padding: 50px 80px;
     border: 2px solid gray;
     border-radius: 10px;
     box-shadow: -3px 3px 11px 0px gray;
+    flex-direction: column;
+}
+
+
+#login_main_logo{
+    width: 70px;
+    height: 70px;
+    border: 2px solid black;
+    border-radius: 100%;
+    
+}
+
+
+#login_email_input{
+
 }

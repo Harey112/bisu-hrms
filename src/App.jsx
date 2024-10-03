@@ -1,8 +1,8 @@
 import './styles/Global-Styles.css'
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
-import Layout from './pages/Layout';
-import Login from './pages/User/Login';
+import Layout from './components/Layout';
+import Login from './components/User/Login';
 
 
 function App() {
