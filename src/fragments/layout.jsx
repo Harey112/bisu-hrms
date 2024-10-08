@@ -2,8 +2,8 @@ function Layout(){
 
     return <>
     <div className="base_container">
-        <div className="side_menu">
-
+        <div className="dock_panel">
+            
         </div>
         <div className="content">
         </div>

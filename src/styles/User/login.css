@@ -1,9 +1,21 @@
 #login_container{
+    flex-direction: column;
+}
+
+#system_name{
+    position: absolute;
+    margin-top: 550px;
+    font-family: 'Poppins';
+    font-weight: 400;
+}
+
+#login_dialog{
     padding: 50px 80px;
-    border: 2px solid gray;
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: -3px 3px 11px 0px gray;
     flex-direction: column;
+    gap: 20px;
 }
 
 
@@ -12,5 +24,12 @@
     height: 70px;
     border: 2px solid black;
     border-radius: 100%;
-    
+}
+
+#input_holder{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    gap: 10px;
 }

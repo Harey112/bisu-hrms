@@ -1,13 +1,19 @@
+import Textfield from "../../fragments/input/Textfield";
+
 function Login(){
     return<>
-    <div className="base_container center_child">
-        <div className="center_child" id="login_container">
-            <div id="login_main_logo"></div>
-            <input type="email" name="email" id="login_email_input" placeholder="Email"/>
-            <input type="password" name="password" id="login_email_input" placeholder="Password"/>
+    <div className="base_container center_child" id="login_container">
+        <div className="center_child" id="login_dialog">
+            <div id="login_main_logo"></div> 
+            <div id="input_holder">
+                <Textfield type="email" name="Email" varName="email" id="login_email_input" value={null} placeholder={null}/>
+                <Textfield type="password" name="Password" id="login_email_input" value={null}/>
+            </div>
             <a href="#">Forgot Password?</a>
-            <button>Login</button>
+            <button className="positive_button">Login</button>
+            <p style={{fontSize: 'small'}}></p>
         </div>
+        <h1 id="system_name">HR Managemagement System</h1>
     </div>
     </>
 }

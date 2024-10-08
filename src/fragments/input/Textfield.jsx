@@ -1,14 +1,14 @@
 function Textfield(props){
 
     return <>
-        <div>
-            <p></p>
-            <input 
-                className="textfield"
+        <div id="textfield_div">
+            <p id="label">{props.name}</p>
+            <input
+                id="textfield"
                 type={props.type} 
                 name={(props.varName) ? props.varName : props.name.toLowerCase().replace(/\s/g, '').replace('-', '')}
                 value={props.value}
-                placeholder={props.placeholder ? props.placeholder : props.name}
+                placeholder={props.placeholder}
                 onChange={(e) => { props.onChange(e) }}
                 autoComplete={props.autoComplete !== undefined ? props.autoComplete : 'off'}
             />
