@@ -1,4 +1,4 @@
-import Textfield from "../../fragments/input/Textfield";
+import Textfield from "../../fragments/input/textfield";
 
 function Login(){
     return<>

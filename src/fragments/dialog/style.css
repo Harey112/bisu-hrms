@@ -1,0 +1,35 @@
+.dialog_base{
+    position: absolute;
+    background-color: #5555555f;
+    z-index: 2;
+}
+
+
+.dialog_base > .dialog{
+    min-width: 240px;
+    padding: 10px 20px;
+    border: 2px solid gray;
+    background-color: #ffffff;
+    box-shadow: -3px 3px 11px 0px gray;
+    border-radius: 5px;
+    flex-direction: column;
+    gap: 35px
+}
+
+.dialog_base > .dialog > h3{
+    font-size: large;
+    font-family: Poppins;
+    font-weight: 600;
+}
+
+.dialog_base > .dialog > p{
+    font-size: medium;
+    font-weight: 500;
+    
+}
+
+.dialog_base > .dialog > div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
