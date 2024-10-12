@@ -2,10 +2,12 @@
 #dock_panel{
     position: relative;
     margin-left: calc((-100vw) + 80px);
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
     border: 2px solid gray;
     border-radius: 10px;
     background-color: #fff;
-    padding: 10px 10px 3px 10px;
+    padding: 10px 10px 0px 10px;
     z-index: 5;
     animation: hide_dock 3s ease-in-out both;
 }
@@ -48,17 +50,60 @@
 }
 
 #dock_panel > ul > li{
-    height: 45px;
-    width: 45px;
+    height: 35px;
+    width: 35px;
+    padding: 5px;
     border-radius: 5px;
-    margin-bottom: 7px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
 
-#dock_panel > ul > li img{
-    height: 100%;
-    width: 100%;
+#dock_panel > ul > li > img{
+    height: auto;
+    width: inherit;
 }
+
+
+#dock_panel > ul > li > p {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+    position: fixed;
+    margin-left: 50px;
+    background-color: #000000b3;
+    color: white;
+    padding: 2px 5px; 
+    white-space: nowrap;
+    font-size: small;
+}
+
+
+#dock_panel > ul > li:hover > p {
+    visibility: visible;
+    opacity: 1;
+}
+
+.selected {
+    background-color: #cfcfcf;
+    position: relative;
+}
+
+.selected::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #ffe018;
+    border-radius: 50%;
+}
+
+
 
 #dock_panel > ul > li:hover{
     background-color: #cfcfcf;
@@ -71,7 +116,7 @@
 
 #content{
     position: absolute;
-    border: 1px solid black;
+    overflow-y: auto;
     height: 99%;
     width: 90%;
     z-index: 1;

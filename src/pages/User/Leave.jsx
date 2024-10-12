@@ -2,7 +2,7 @@ import Layout from "../../fragments/layout";
 import base64Icons from "../../assets/icons";
 import { useState } from "react";
 
-function Dashboard() {
+function Leave() {
     const [error, setError] = useState(undefined);
     const [prompt, setPrompt] = useState(undefined);
     const [message, setMessage] = useState(undefined);
@@ -10,7 +10,7 @@ function Dashboard() {
     const [customContent, setCustomContent] = useState(undefined);
     
     const menu = [
-        {   name: 'Dashboard', route: '/dashboard', icon: base64Icons.dashboard, isSelected: true
+        {   name: 'Dashboard', route: '/dashboard', icon: base64Icons.dashboard, isSelected: false
         },{
             name: 'Department', route: '/department', icon: base64Icons.department, isSelected: false
         },{
@@ -20,22 +20,22 @@ function Dashboard() {
         },{
             name: 'Attendance', route: '/attendance', icon: base64Icons.attendance, isSelected: false
         },{
-            name: 'Leave', route: '/leave', icon: base64Icons.leave, isSelected: false
+            name: 'Leave', route: '/leave', icon: base64Icons.leave, isSelected: true
         },{
             name: 'Report', route: '/report', icon: base64Icons.report, isSelected: false
         }
     ];
-
+    
 
 
 
     return (
         <>
             <Layout menu={menu} error={error} prompt={prompt} message={message} operation={operation} customContent={customContent}>
-                <p>Hello Dashboard</p>
+                <p>Hello</p>
             </Layout>
         </>
     );
 }
 
-export default Dashboard;
+export default Leave;
