@@ -9,6 +9,9 @@
 @import url('../fragments/layout.css');
 @import url('../fragments/input/style.css');
 @import url('../fragments/dialog/style.css');
+@import url('../fragments/header/style.css');
+@import url('../fragments/form/style.css');
+@import url('../styles/User/employees.css');
 
 
 
@@ -17,7 +20,7 @@
     padding: 0;
     font-family: Montserrat;
     position: relative;
-    z-index: -1;
+    z-index: 1;
 }
 
 .base_container{

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
+import Header from "./header/header";
 import CustomContentDialog from "./dialog/content";
 import Error from "./dialog/error";
 import Message from "./dialog/message";
@@ -15,6 +16,9 @@ function Layout(props){
     return <>
     
     <div className="base_container center_child" id="main_content_holder">
+        <div className="header_holder center_child">
+            <Header routePath={props.routePath}/>
+        </div>
         <div id="dock_panel">
             <ul>
                 {props.menu.map((item, i)=>{

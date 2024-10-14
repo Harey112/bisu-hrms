@@ -1,0 +1,34 @@
+#employee_container{
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #ffffff;
+    padding: 5px;
+
+}
+
+#employee_container > form{
+    display: flex;
+    gap: 10px;
+}
+
+
+#employee_container > form > *{
+    font-size: 15px;
+    padding: 2px 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    outline: none;
+}
+
+#employee_container > button{
+    font-size: 13px;
+}
+
+#add_employee_form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

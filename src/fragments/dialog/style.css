@@ -1,7 +1,7 @@
 .dialog_base{
     position: absolute;
     background: transparent;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(2px);
     z-index: 2;
 }
 
@@ -16,6 +16,7 @@
     flex-direction: column;
     gap: 35px
 }
+
 
 .dialog_base > .dialog > h3{
     font-size: large;

@@ -1,8 +1,10 @@
 import Layout from "../../fragments/layout";
 import base64Icons from "../../assets/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import FormTextField from "../../fragments/form/textfield";
 
 function Employees() {
+    const [routePath, setRoutePath] = useState('> Employees')
     const [error, setError] = useState(undefined);
     const [prompt, setPrompt] = useState(undefined);
     const [message, setMessage] = useState(undefined);
@@ -27,12 +29,42 @@ function Employees() {
     ];
 
 
+    /* useEffect(() => {
+      setError({title: "ERROR", message: "Error 404", button: {label: 'Close', action: ()=> {setError(undefined);}}});
+    
+
+    }, []) */
+
+    const addEmployeeComponent = (
+        <form id="add_employee_form" action="" >
+            <FormTextField type="text" label="Firstname" name="firstname" width="80%"/>
+            <FormTextField type="text" label="Lastname" name="lastname" width="80%"/>
+            <FormTextField type="text" label="Email" name="email" width="80%"/>
+            <FormTextField type="text" label="Department" name="department" width="80%"/>
+            <FormTextField type="text" label="Role" name="role" width="80%"/>
+            <FormTextField type="text" label="User Type" name="usertype" width="80%"/>
+            <div >
+                <button type="reset" className="neutral_button">Reset</button>
+                <button type="submit" className="positive_button">Add Employee</button>
+            </div>
+            <p>Messages Here</p>
+        </form>
+    );
+    
+
+
 
 
     return (
         <>
-            <Layout menu={menu} error={error} prompt={prompt} message={message} operation={operation} customContent={customContent}>
-                <p>Hello</p>
+            <Layout routePath={routePath} menu={menu} error={error} prompt={prompt} message={message} operation={operation} customContent={customContent}>
+                <div id="employee_container">
+                    <form>
+                        <input type="search" placeholder="Search"/>
+                        <select name="" id=""></select>
+                    </form>
+                    <button onClick={()=> {setCustomContent({title: 'Add Employee', children: addEmployeeComponent})}} className="positive_button">+ Add Employee</button>
+                </div>
             </Layout>
         </>
     );

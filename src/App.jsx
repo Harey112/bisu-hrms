@@ -1,7 +1,6 @@
 import './styles/global-styles.css'
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
-import Layout from './fragments/layout';
 import Login from './pages/User/Login';
 import Dashboard from './pages/User/Dashboard';
 import Department from './pages/User/Department';
