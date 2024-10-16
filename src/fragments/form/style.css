@@ -62,7 +62,7 @@
 
 @keyframes move_down {
     0%{
-        margin-top: -40px;
+        margin-top: 0px;
     }    
 
     100%{

@@ -1,21 +1,26 @@
 #employee_container{
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+}
+
+
+#employee_toolbar{
     width: calc(100% - 10px);
-    height: calc(100% - 10px);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    background-color: #ffffff;
     padding: 5px;
 
 }
 
-#employee_container > form{
+#employee_toolbar > form{
     display: flex;
     gap: 10px;
 }
 
 
-#employee_container > form > *{
+#employee_toolbar > form > *{
     font-size: 15px;
     padding: 2px 5px;
     border: 1px solid gray;
@@ -23,12 +28,78 @@
     outline: none;
 }
 
-#employee_container > button{
+#employee_toolbar > button{
     font-size: 13px;
 }
 
 #add_employee_form{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 15px;
 }
+
+
+#add_employee_form > div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#add_employee_form > div > button[type="button"]{
+    font-size: small;
+}
+
+#add_employee_form > div > button[type="submit"]{
+    font-size: small;
+    background-color: #0b2e9d;
+    color: #ffffff;
+}
+
+#add_employee_form > p{
+    font-size: small;
+}
+
+#list_container{
+    margin-top: 20px;
+    width: 100%;
+    height: calc(100% - 72px);
+    overflow-y: auto;
+}
+
+
+.employees > div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #0b2e9d;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.employees > div > div{
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.employees > div > div > img{
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+
+
+.employees > div > p{
+    top: 10px;
+    font-family: Poppins;
+    font-size: medium;
+    font-weight: 400;
+}
+
+
