@@ -1,3 +1,6 @@
+import './style.css';
+
+
 function Prompt(props){
     return<>
     <div className="content_container center_child dialog_base">

@@ -1,3 +1,4 @@
+import './style.css';
 import base64Icons from "../../assets/icons";
 
 

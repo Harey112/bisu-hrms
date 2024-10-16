@@ -5,14 +5,7 @@
 /*Roboto Mono*/
 @import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
-@import url('./User/login.css');
-@import url('../fragments/layout.css');
-@import url('../fragments/input/style.css');
-@import url('../fragments/dialog/style.css');
-@import url('../fragments/header/style.css');
-@import url('../fragments/form/style.css');
-@import url('../fragments/gridview/style.css');
-@import url('../styles/User/employees.css');
+
 
 
 

@@ -6,6 +6,7 @@ import Error from "./dialog/error";
 import Message from "./dialog/message";
 import Operation from "./dialog/operation";
 import Prompt from "./dialog/prompt";
+import './layout.css';
 
 
 function Layout(props){

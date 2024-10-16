@@ -1,3 +1,4 @@
+import './style.css';
 import Layout from "../../fragments/layout";
 import base64Icons from "../../assets/icons";
 import { useEffect, useState } from "react";

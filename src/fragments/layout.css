@@ -112,7 +112,7 @@
 #main_content_holder{
     position: relative;
     z-index: -2;
-    background-color: #ececec;
+    background-color: #e2e5ff;
     flex-direction: column;
 }
 

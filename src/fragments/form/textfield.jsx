@@ -1,3 +1,5 @@
+import './style.css';
+
 function FormTextField(props){
       return (
             <div id="form_textfield_container" width={props.width ? props.width : '100%'}>

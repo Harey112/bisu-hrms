@@ -1,3 +1,5 @@
+import './style.css';
+
 function Message(props){
     return<>
     <div className="content_container center_child dialog_base">

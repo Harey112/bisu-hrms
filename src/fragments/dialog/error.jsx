@@ -1,3 +1,4 @@
+import './style.css';
 function Error(props){
     return<>
     <div className="content_container center_child dialog_base">
