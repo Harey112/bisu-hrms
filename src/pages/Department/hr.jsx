@@ -55,7 +55,7 @@ function Department() {
                 <div id="employee_container">
                     <div id="employee_toolbar">
                         <form>
-                            <input type="search" placeholder="Search"/>
+                            <input type="search" name="search" placeholder="Search"/>
                         </form>
                         <button onClick={()=> {setCustomContent({title: 'Add Employee', children: addDepartmentComponent})}} className="positive_button">+ Add Department</button>
                     </div>

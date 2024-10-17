@@ -69,8 +69,8 @@ function Employees() {
                 <div id="employee_container">
                     <div id="employee_toolbar">
                         <form>
-                            <input type="search" placeholder="Search"/>
-                            <select name="" id="" placeholder="Department">
+                            <input type="search" name='search' placeholder="Search"/>
+                            <select name="filter" placeholder="Department">
                                 <option value=""></option>
                                 <option value="">------------</option>
                             </select>
