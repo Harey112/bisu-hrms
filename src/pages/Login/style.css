@@ -20,9 +20,8 @@
 
 
 #login_main_logo{
-    width: 70px;
-    height: 70px;
-    border: 2px solid black;
+    width: 90px;
+    height: auto;
     border-radius: 100%;
 }
 
