@@ -3,10 +3,10 @@ import './style.css';
 function Textfield(props){
 
     return <>
-        <div id="textfield_div">
-            <p id="label">{props.name}</p>
+        <div className="textfield_div">
+            <p className="label">{props.name}</p>
             <input
-                id="textfield"
+                className="textfield"
                 type={props.type} 
                 name={(props.varName) ? props.varName : props.name.toLowerCase().replace(/\s/g, '').replace('-', '')}
                 value={props.value}

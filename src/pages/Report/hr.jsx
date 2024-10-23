@@ -1,5 +1,5 @@
 import Layout from "../../fragments/layout";
-import base64Icons from "../../assets/icons";
+import icons from "../../assets/icons";
 import { useState } from "react";
 
 function Report() {
@@ -10,19 +10,19 @@ function Report() {
     const [customContent, setCustomContent] = useState(undefined);
     
     const menu = [
-        {   name: 'Dashboard', route: '/dashboard', icon: base64Icons.dashboard, isSelected: false
+        {   name: 'Dashboard', route: '/dashboard', icon: icons.dashboard, isSelected: false
         },{
-            name: 'Department', route: '/department', icon: base64Icons.department, isSelected: false
+            name: 'Department', route: '/department', icon: icons.department, isSelected: false
         },{
-            name: 'College', route: '/college', icon: base64Icons.college, isSelected: false
+            name: 'College', route: '/college', icon: icons.college, isSelected: false
         },{
-            name: 'Employees', route: '/employees', icon: base64Icons.employees, isSelected: false
+            name: 'Employees', route: '/employees', icon: icons.employees, isSelected: false
         },{
-            name: 'Attendance', route: '/attendance', icon: base64Icons.attendance, isSelected: false
+            name: 'Attendance', route: '/attendance', icon: icons.attendance, isSelected: false
         },{
-            name: 'Leave', route: '/leave', icon: base64Icons.leave, isSelected: false
+            name: 'Leave', route: '/leave', icon: icons.leave, isSelected: false
         },{
-            name: 'Report', route: '/report', icon: base64Icons.report, isSelected: true
+            name: 'Report', route: '/report', icon: icons.report, isSelected: true
         }
     ];
     

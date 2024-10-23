@@ -35,6 +35,11 @@
 }
 
 
+#header > #user{
+    cursor: pointer;
+}
+
+
 #header > #user > p{
     font-size: small;
 }

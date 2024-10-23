@@ -1,4 +1,4 @@
-#textfield_div{
+.textfield_div{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -6,12 +6,12 @@
     align-items: center;
 }
 
-#textfield_div p#label{
+.textfield_div p.label{
     font-size: small;
     font-weight: 500;
 }
 
-#textfield_div input#textfield{
+.textfield_div input.textfield{
     padding: 5px;
     border: 1px solid #2054ff;
     outline: none;

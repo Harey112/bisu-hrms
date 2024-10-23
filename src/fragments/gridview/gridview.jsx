@@ -1,5 +1,5 @@
 import './style.css';
-import base64Icons from "../../assets/icons";
+import icons from "../../assets/icons";
 
 function GridView(props){
 

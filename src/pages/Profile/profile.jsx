@@ -4,7 +4,7 @@ import icons from "../../assets/icons";
 import { useState } from "react";
 import { logout } from '../../../util functions/account';
 
-function Dashboard() {
+function Profile() {
     const [error, setError] = useState(undefined);
     const [prompt, setPrompt] = useState(undefined);
     const [message, setMessage] = useState(undefined);
@@ -12,13 +12,9 @@ function Dashboard() {
     const [customContent, setCustomContent] = useState(undefined);
     
     const menu = [
-        {name: 'Dashboard', route: '/dashboard', icon: icons.dashboard, isSelected: true},
-        {name: 'Department', route: '/department', icon: icons.department, isSelected: false},
-        {name: 'College', route: '/college', icon: icons.college, isSelected: false},
-        {name: 'Employees', route: '/employees', icon: icons.employees, isSelected: false},
-        {name: 'Attendance', route: '/attendance', icon: icons.attendance, isSelected: false},
-        {name: 'Leave', route: '/leave', icon: icons.leave, isSelected: false},
-        {name: 'Report', route: '/report', icon: icons.report, isSelected: false}
+        {name: 'Back', route: -1, icon: icons.back, isSelected: false},
+        {name: 'Personal Information', route: '/profile/personal-info', icon: icons.personalinfo, isSelected: true},
+        {name: 'Family Background', route: '/profile/family-background', icon: icons.familybackground, isSelected: false},
     ];
 
 
@@ -46,4 +42,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default Profile;

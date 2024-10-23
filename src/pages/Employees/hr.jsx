@@ -1,19 +1,19 @@
 import './style.css';
 import Layout from "../../fragments/layout";
-import base64Icons from "../../assets/icons";
+import icons from "../../assets/icons";
 import { useEffect, useState } from "react";
 import FormTextField from "../../fragments/form/textfield";
 import GridView from "../../fragments/gridview/gridview";
 
 function Employees() {
     const menu = [
-        {name: 'Dashboard', route: '/dashboard', icon: base64Icons.dashboard, isSelected: false},
-        {name: 'Department', route: '/department', icon: base64Icons.department, isSelected: false},
-        {name: 'College', route: '/college', icon: base64Icons.college, isSelected: false},
-        {name: 'Employees', route: '/employees', icon: base64Icons.employees, isSelected: true},
-        {name: 'Attendance', route: '/attendance', icon: base64Icons.attendance, isSelected: false},
-        {name: 'Leave', route: '/leave', icon: base64Icons.leave, isSelected: false},
-        {name: 'Report', route: '/report', icon: base64Icons.report, isSelected: false}
+        {name: 'Dashboard', route: '/dashboard', icon: icons.dashboard, isSelected: false},
+        {name: 'Department', route: '/department', icon: icons.department, isSelected: false},
+        {name: 'College', route: '/college', icon: icons.college, isSelected: false},
+        {name: 'Employees', route: '/employees', icon: icons.employees, isSelected: true},
+        {name: 'Attendance', route: '/attendance', icon: icons.attendance, isSelected: false},
+        {name: 'Leave', route: '/leave', icon: icons.leave, isSelected: false},
+        {name: 'Report', route: '/report', icon: icons.report, isSelected: false}
     ];
     
     const [routePath, setRoutePath] = useState('> Employees')
@@ -44,12 +44,12 @@ function Employees() {
 
     const addEmployeeComponent = (
         <form id="add_employee_form" method="POST" action="" >
-            <FormTextField type="text" label="Firstname" name="firstname" width="80%" required="true"/>
-            <FormTextField type="text" label="Lastname" name="lastname" width="80%" required="true"/>
-            <FormTextField type="text" label="Email" name="email" width="80%" required="true"/>
-            <FormTextField type="text" label="Department" name="department" width="80%" required="true"/>
-            <FormTextField type="text" label="Role" name="role" width="80%" required="true"/>
-            <FormTextField type="text" label="User Type" name="usertype" width="80%" required="true"/>
+            <FormTextField type="text" label="Firstname" name="firstname" width="80%" required={true}/>
+            <FormTextField type="text" label="Lastname" name="lastname" width="80%" required={true}/>
+            <FormTextField type="text" label="Email" name="email" width="80%" required={true}/>
+            <FormTextField type="text" label="Department" name="department" width="80%" required={true}/>
+            <FormTextField type="text" label="Role" name="role" width="80%" required={true}/>
+            <FormTextField type="text" label="User Type" name="usertype" width="80%" required={true}/>
             <div >
                 <button type="button" className="neutral_button" onClick={()=> {setCustomContent(undefined)}}>Cancel</button>
                 <button type="submit" className="positive_button">Add Employee</button>
