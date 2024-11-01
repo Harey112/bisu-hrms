@@ -1,6 +1,5 @@
-#form_textfield_container{
+.input_container{
     display: flex;
-    width: 100%;
     height: 35px;
     align-items: center;
     justify-content: start;
@@ -8,36 +7,36 @@
 }
 
 
-#form_textfield_container > input{
+.input_container > input{
     width: calc(100% - 10px);
     height: calc(100% - 10px);
-    border: 2px solid gray;
+    border: 1px solid gray;
     border-radius: 5px;
     padding: 5px;
     outline: none;
-    font-size: medium;
-    font-weight: 400;
+    font-size: small;
+    font-weight: 300;
     font-family: Poppins;
     background-color: transparent;
     position: relative;
 }
 
-#form_textfield_container > input::placeholder {
+.input_container > input::placeholder {
     color: transparent;
 }
 
-#form_textfield_container > input:focus + label,
-#form_textfield_container:focus-within label,
-#form_textfield_container > input:not(:placeholder-shown) + label {
+.input_container > input:focus + label,
+.input_container:focus-within label,
+.input_container > input:not(:placeholder-shown) + label {
     animation: move_up 0.1s ease-in-out both;
 }
 
-#form_textfield_container > input:not(:focus):placeholder-shown + label {
+.input_container > input:not(:focus):placeholder-shown + label {
     animation: move_down 0.1s ease-in-out both;
 }
 
 
-#form_textfield_container > label{
+.input_container > label{
     position: absolute;
     font-size: small;
     font-weight: 500;
@@ -46,6 +45,34 @@
     padding: 0px 2px;
     margin-top: 0px;
     z-index: 1;
+}
+
+
+.input_container > select{
+    width: calc(100%);
+    height: calc(100%);
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    font-weight: 300;
+    font-family: Poppins;
+    background-color: transparent;
+}
+
+
+.input_container > select > option{
+    font-size: small;
+}
+
+.input_container > select:focus + label,
+.input_container:focus-within label,
+.input_container > select:not(:placeholder-shown) + label {
+    animation: move_up 0.1s ease-in-out both;
+}
+
+.input_container > select:not(:focus):placeholder-shown + label {
+    animation: move_down 0.1s ease-in-out both;
 }
 
 
@@ -70,3 +97,6 @@
     }
     
 }
+
+
+

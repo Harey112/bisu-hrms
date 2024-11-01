@@ -2,8 +2,8 @@ import './style.css';
 
 function FormTextField(props){
       return (
-            <div id="form_textfield_container" width={props.width ? props.width : '100%'}>
-                  <input type={props.type} className={"form_field "+props.className} placeholder={props.label} name={props.name} required={props.required} />
+            <div className="input_container" style={{width :props.width ? props.width : '100%'}}>
+                  <input type={props.type} className={"form_field "+props.className} placeholder={props.label} id={props.name} required={props.required} />
                   <label htmlFor={props.name} className="form__label">{props.label}</label>
             </div>
       )
