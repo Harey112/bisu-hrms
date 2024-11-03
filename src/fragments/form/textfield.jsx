@@ -1,10 +1,14 @@
 import './style.css';
 
 function FormTextField(props){
+
+      const id = Math.random().toString().replace("0.", '');
+      
+
       return (
             <div className="input_container" style={{width :props.width ? props.width : '100%'}}>
-                  <input type={props.type} className={"form_field "+props.className} placeholder={props.label} id={props.name} required={props.required} />
-                  <label htmlFor={props.name} className="form__label">{props.label}</label>
+                  <input type={props.type} className={"form_field "+props.className} placeholder={props.label} id={id} value={props.data[props.path]} onChange={(e)=>{props.onChange(e, props.path)}} required={props.required} />
+                  <label htmlFor={id} className="form__label">{props.label}</label>
             </div>
       )
 }

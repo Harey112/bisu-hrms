@@ -1,13 +1,16 @@
 .profile_div{
     width: calc(100% - 10px);
-    height: calc(100% - 10px);
+    height: auto;
     padding: 5px;
     background-color: #ffffff;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 
-.profile_div > .page_title{
+.page_title{
     display: flex;
     justify-content: start;
     align-items: center;
@@ -15,29 +18,31 @@
 }
 
 
-.profile_div > .page_title > img{
+.page_title > img{
     width: 40px;
     height: auto;
 }
 
 
-.profile_div > .page_title > p{
+.page_title > p{
     font-weight: 600;
 }
 
 
-.profile_div > .profile{
-    width: calc(100% - 10px);
-    height: calc(100% - 40px);
+.profile {
+    width: 100%;
+    height: auto;
     display: flex;
     margin-top: 10px;
-
+    padding: 10px 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
 }
 
 
 .profile_div > .profile > .info{
     width: 70%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -45,12 +50,170 @@
 
 
 .profile_div > .profile > .profile_pic{
-    width: 30%;
+    width: 20vw;
+    height: 20vw;
+    border: 1px solid #0A2F9D;
+    border-radius: 100%;
+}
+
+.profile_div > .profile > .profile_pic > img{
+    width: auto;
     height: 100%;
 }
 
 .section{
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+
+.group_form{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px
+}
+
+
+.group_form > h5{
+    font-weight: 600;
+}
+
+
+.family_bg_container{
+    width: calc(100% - 10px);
+    height: auto;
+    padding: 5px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.profile_table{
+    font-size: small;
+
+    border-collapse: collapse;
+
+}
+
+
+.profile_table > thead > tr > th{
+    font-weight: 600;
+    border: 1px solid #0A2F9D;
+}
+
+
+.profile_tool{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.add_child_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.add_child_form > div{
+    width: 100%;
+    display: inherit;
+    justify-content: space-between;
+}
+
+
+.edu_bg{
+    width: calc(100% - 10px);
+    height: auto;
+    padding: 5px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.add_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.auto_overflow_x{
+    overflow-x: auto;
+}
+
+
+.add_form > div{
+    width: 100%;
+    display: inherit;
+    justify-content: space-between;
+   
+}
+
+.cs_elegibilty{
+    width: calc(100% - 10px);
+    height: auto;
+    padding: 5px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.work_exp{
+    width: calc(100% - 10px);
+    height: auto;
+    padding: 5px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.vol_work{
+    width: calc(100% - 10px);
+    height: auto;
+    padding: 5px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.ldpa{
+    width: calc(100% - 10px);
+    height: auto;
+    padding: 5px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.other_info{
+    width: calc(100% - 10px);
+    height: auto;
+    padding: 5px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.action_cell{
+    width: 100px;
 }

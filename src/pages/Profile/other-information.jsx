@@ -3,6 +3,8 @@ import Layout from "../../fragments/layout";
 import icons from "../../assets/icons";
 import { useState } from "react";
 import { logout } from '../../../util functions/account';
+import FormTextField from '../../fragments/form/textfield';
+import FormSelect from '../../fragments/form/select';
 
 function OtherInformation() {
     const [error, setError] = useState(undefined);
@@ -24,12 +26,81 @@ function OtherInformation() {
     ];
 
 
+    const addOtherInformation = <>
+        <form action="" className='add_form'>
+        <FormSelect label="Title of Program" name="title" width="300px"
+        choices={['Special Skills and Hobbies', 'Non-academic Distinction/Recognition', 'Membership in Association/Organization']}
+        />
+        <FormTextField type="text" label="Skills/Hobbies/Recognition/Association" name="datefrom" width="300px"/>
+        <div>
+            <button className="neutral_button" type='button' onClick={()=> {setCustomContent(null)}}>Cancel</button>
+            <button className='positive_button'>Add</button>
+        </div>
+    </form>
+    </>
 
 
     return (
         <>
             <Layout menu={menu} error={error} prompt={prompt} message={message} operation={operation} customContent={customContent}>
-                <p>Other Information</p>
+            <div className="other_info content_container">
+                    <div className='page_title'>
+                        <img src={icons.otherinformation} alt="Photo" />
+                        <p>Other Information</p>
+                    </div>
+                    <div className="group_form auto_overflow_x">
+
+                            <table className='profile_table'>
+                                <thead>
+                                    <tr>
+                                        <th className='action_cell' >Action</th>
+                                        <th>Special Skills and Hobbies</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>No Records Yet.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    <div className="group_form auto_overflow_x">
+
+                        <table className='profile_table'>
+                            <thead>
+                                <tr>
+                                    <th className='action_cell' >Action</th>
+                                    <th>Non-academic Distinction/Recognition</th>
+                                    </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>No Records Yet.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className="group_form auto_overflow_x">
+
+                        <table className='profile_table'>
+                            <thead>
+                                <tr>
+                                    <th className='action_cell' >Action</th>
+                                    <th>Membership in Association/Organization</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>No Records Yet.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                        <div className="profile_tool">
+                            <button className='positive_button' onClick={()=>{setCustomContent({title: 'Add Other Information', children: addOtherInformation})}}>Add Record</button>
+                            <button className='positive_button'>Save</button>
+                        </div>
+            </div>
             </Layout>
         </>
     );

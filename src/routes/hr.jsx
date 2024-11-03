@@ -22,6 +22,7 @@ import OtherInformation from '../pages/Profile/other-information';
 function HRRoutes() {
     return <>
         <Routes>
+            <Route path='/' element={<Navigate to='/dashboard'/>}/>
             <Route path='/dashboard' element={ <Dashboard/> }/>
             <Route path='/department' element={ <Department/> }/>
             <Route path='/college' element={ <College/> }/>

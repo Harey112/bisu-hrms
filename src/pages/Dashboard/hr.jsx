@@ -3,6 +3,7 @@ import Layout from "../../fragments/layout";
 import icons from "../../assets/icons";
 import { useState } from "react";
 import { logout } from '../../../util functions/account';
+import { useUser } from '../../context/user/userprovider';
 
 function Dashboard() {
     const [error, setError] = useState(undefined);
@@ -10,6 +11,10 @@ function Dashboard() {
     const [message, setMessage] = useState(undefined);
     const [operation, setOperation] = useState(undefined);
     const [customContent, setCustomContent] = useState(undefined);
+
+    const {user} = useUser();
+    console.log(user);
+    
     
     const menu = [
         {name: 'Dashboard', route: '/dashboard', icon: icons.dashboard, isSelected: true},
