@@ -7,7 +7,7 @@ function FormTextField(props){
 
       return (
             <div className="input_container" style={{width :props.width ? props.width : '100%'}}>
-                  <input type={props.type} className={"form_field "+props.className} placeholder={props.label} id={id} value={props.data[props.path]} onChange={(e)=>{props.onChange(e, props.path)}} required={props.required} />
+                  <input type={props.type} className={"form_field "+props.className} name={props.name} placeholder={props.label} id={id} value={props.value} disabled={props.disable} onChange={(e)=>{props.onChange(e)}} required={props.required} />
                   <label htmlFor={id} className="form__label">{props.label}</label>
             </div>
       )

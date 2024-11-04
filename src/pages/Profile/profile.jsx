@@ -14,7 +14,7 @@ function Profile() {
     const [operation, setOperation] = useState(undefined);
     const [customContent, setCustomContent] = useState(undefined);
     const [userdata, setUserData] = useState({...data})
-    const {user, saveNewData} = useUser()
+    const {user, userLoading, saveNewData} = useUser()
     const menu = [
         {name: 'Dashboard', route: '/dashboard', icon: icons.dashboard, isSelected: false},
         {name: 'Personal Information', route: '/profile', icon: icons.personalinfo, isSelected: true},
@@ -30,13 +30,20 @@ function Profile() {
 
     useEffect(()=>{
 
-        const getUser = () => {
-            console.log(user);
-            
-        };
+  
 
-        getUser();
-    },[user])
+        if(userLoading){
+            setOperation({title: 'Status', message: 'Fetching data...'});
+            
+        }else{
+            setUserData({...user});
+            
+            setOperation(null)
+        }
+
+    }, [userLoading]);
+
+
 
 
 
@@ -66,13 +73,13 @@ function Profile() {
 
 
     const handleSave = async()=>{
-        setOperation('Saving...');
+        setOperation({title: "Status", message: 'Saving...'});
         var output = await saveNewData(userdata);
         setOperation(null);
         if(output.success){
-            setMessage({title: "Save", message: output.message});
+            setMessage({title: "Saved", message: output.message, button:{label: "Okay", action: ()=>{setMessage(null)}}});
         }else{
-            setError({title: "Save failed!", message: output.message});
+            setError({title: "Save failed!", message: output.message, button:{label: "Okay", action: ()=>{setMessage(null)}}});
         }
     };
 
@@ -90,70 +97,77 @@ function Profile() {
                     <div className="profile">
                         <div className="info">
                             <div className='section'>
-                                <FormTextField type="text" label="Firstname" data={userdata} path="personalinfo.firstname" width="48%" onChange={handleChange}/>
-                                <FormTextField type="text" label="Middlename" data={userdata} path="personalinfo.middlename" width="48%" onChange={handleChange}/>
+                                <FormTextField type="text" label="Firstname" value={userdata.personalinfo.firstname} width="48%" onChange={(e) => handleChange(e, "personalinfo.firstname")}/>
+                                <FormTextField type="text" label="Middlename" value={userdata.personalinfo.middlename} width="48%" onChange={(e) => handleChange(e, "personalinfo.middlename")}/>
                             </div>
                             <div className='section'>
-                                <FormTextField type="text" label="Lastname" data={userdata} path="personalinfo.lastname" width="48%" onChange={handleChange}/>
-                                <FormTextField type="text" label="Name Extension" data={userdata} path="personalinfo.nameextension" width="48%" onChange={handleChange}/>
+                                <FormTextField type="text" label="Lastname" value={userdata.personalinfo.lastname} width="48%" onChange={(e) => handleChange(e, "personalinfo.lastname")}/>
+                                <FormTextField type="text" label="Name Extension" value={userdata.personalinfo.nameextension} width="48%" onChange={(e) => handleChange(e, "personalinfo.nameextension")}/>
                             </div>
                             <div className='section'>
-                                <FormTextField type="date" label="Birth Date" data={userdata} path="personalinfo.birthdate" width="28%" alue={userdata.personalinfo.birthdate} onChange={handleChange}/>
-                                <FormTextField type="text" label="Birth Place" data={userdata} path="personalinfo.birthplace" width="68%" onChange={handleChange}/>
+                                <FormTextField type="date" label="Birth Date" value={userdata.personalinfo.birthdate} width="28%" onChange={(e) => handleChange(e, "personalinfo.birthdate")}/>
+                                <FormTextField type="text" label="Birth Place" value={userdata.personalinfo.birthplace} width="68%" onChange={(e) => handleChange(e, "personalinfo.birthplace")}/>
                             </div>
-
                             <div className="section">
-                                <FormSelect choices={['Male', 'Female']} data={userdata} path="personalinfo.sex" label="Sex" width="48%" onChange={handleChange}/>
-                                <FormSelect choices ={['Single', 'Married', 'Divorced', 'Widowed', 'Separated']} data={userdata} path="personalinfo.civilstatus" label="Civil Status" width="48%" onChange={handleChange}/>
+                                <FormSelect choices={['Male', 'Female']} value={userdata.personalinfo.sex} label="Sex" width="48%" onChange={(e) => handleChange(e, "personalinfo.sex")}/>
+                                <FormSelect choices={['Single', 'Married', 'Divorced', 'Widowed', 'Separated']} value={userdata.personalinfo.civilstatus} label="Civil Status" width="48%" onChange={(e) => handleChange(e, "personalinfo.civilstatus")}/>
                             </div>
                             <div className='section'>
-                                <FormTextField type="number" label="Height (m)" data={userdata} path="personalinfo.height" width="32%" onChange={handleChange}/>
-                                <FormTextField type="number" label="Weight (kg)" data={userdata} path="personalinfo.weight" width="32%" onChange={handleChange}/>
-                                <FormTextField type="text" label="Blood Type" data={userdata} path="personalinfo.bloodtype" width="32%" onChange={handleChange}/>
+                                <FormTextField type="number" label="Height (m)" value={userdata.personalinfo.height} width="32%" onChange={(e) => handleChange(e, "personalinfo.height")}/>
+                                <FormTextField type="number" label="Weight (kg)" value={userdata.personalinfo.weight} width="32%" onChange={(e) => handleChange(e, "personalinfo.weight")}/>
+                                <FormTextField type="text" label="Blood Type" value={userdata.personalinfo.bloodtype} width="32%" onChange={(e) => handleChange(e, "personalinfo.bloodtype")}/>
                             </div>
                             <div className='section'>
-                                <FormTextField type="number" label="GSIS ID NO." data={userdata} path="personalinfo.gsisno" width="32%" onChange={handleChange}/>
-                                <FormTextField type="number" label="PAG-IBIG NO." data={userdata} path="personalinfo.pagibigno" width="32%" onChange={handleChange}/>
-                                <FormTextField type="number" label="PHILHEALTH NO." data={userdata} path="personalinfo.philhealthno" width="32%" onChange={handleChange}/>
+                                <FormTextField type="number" label="GSIS ID NO." value={userdata.personalinfo.gsisno} width="32%" onChange={(e) => handleChange(e, "personalinfo.gsisno")}/>
+                                <FormTextField type="number" label="PAG-IBIG NO." value={userdata.personalinfo.pagibigno} width="32%" onChange={(e) => handleChange(e, "personalinfo.pagibigno")}/>
+                                <FormTextField type="number" label="PHILHEALTH NO." value={userdata.personalinfo.philhealthno} width="32%" onChange={(e) => handleChange(e, "personalinfo.philhealthno")}/>
                             </div>
                             <div className='section'>
-                                <FormTextField type="number" label="SSS NO." data={userdata} path="personalinfo.sssno" width="32%" onChange={handleChange}/>
-                                <FormTextField type="number" label="TIN NO." data={userdata} path="personalinfo.tinno" width="32%" onChange={handleChange}/>
-                                <FormTextField type="text" label="AGENCY EMPLOYEE NO." data={userdata} path="personalinfo.agencyemployeeno" width="32%" onChange={handleChange}/>
+                                <FormTextField type="number" label="SSS NO." value={userdata.personalinfo.sssno} width="32%" onChange={(e) => handleChange(e, "personalinfo.sssno")}/>
+                                <FormTextField type="number" label="TIN NO." value={userdata.personalinfo.tinno} width="32%" onChange={(e) => handleChange(e, "personalinfo.tinno")}/>
+                                <FormTextField type="text" label="AGENCY EMPLOYEE NO." value={userdata.personalinfo.agencyemployeeno} width="32%" onChange={(e) => handleChange(e, "personalinfo.agencyemployeeno")}/>
                             </div>
                         </div>
                         <div className="profile_pic">
-                            <img src="" alt="" />
+                            
                         </div>
                     </div>
                     <div className="group_form">
                         <h5>Residential Address</h5>
                         <div className='section'>
-                            <FormTextField type="text" label="House/Block/Lot No." data={userdata} path="personalinfo.residentialaddress.house" width="32%" onChange={handleChange}/>
-                            <FormTextField type="text" label="Street" data={userdata} path="personalinfo.residentialaddress.street" width="32%" onChange={handleChange}/>
-                            <FormTextField type="text" label="Subdivision/Village" data={userdata} path="personalinfo.residentialaddress.subdivision" width="32%" onChange={handleChange}/>
+                            <FormTextField type="text" label="House/Block/Lot No." value={userdata.personalinfo.residentialaddress.house} width="32%" onChange={(e) => handleChange(e, "personalinfo.residentialaddress.house")}/>
+                            <FormTextField type="text" label="Street" value={userdata.personalinfo.residentialaddress.street} width="32%" onChange={(e) => handleChange(e, "personalinfo.residentialaddress.street")}/>
+                            <FormTextField type="text" label="Subdivision/Village" value={userdata.personalinfo.residentialaddress.subdivision} width="32%" onChange={(e) => handleChange(e, "personalinfo.residentialaddress.subdivision")}/>
                         </div>
                         <div className='section'>
-                            <FormTextField type="text" label="Barangay" data={userdata} path="personalinfo.residentialaddress.barangay" width="24%" onChange={handleChange}/>
-                            <FormTextField type="text" label="City" data={userdata} path="personalinfo.residentialaddress.city" width="24%" onChange={handleChange}/>
-                            <FormTextField type="text" label="Province" data={userdata} path="personalinfo.residentialaddress.province" width="24%" onChange={handleChange}/>
-                            <FormTextField type="number" label="Zipcode" data={userdata} path="personalinfo.residentialaddress.zipcode" width="24%" onChange={handleChange}/>
+                            <FormTextField type="text" label="Barangay" value={userdata.personalinfo.residentialaddress.barangay} width="24%" onChange={(e) => handleChange(e, "personalinfo.residentialaddress.barangay")}/>
+                            <FormTextField type="text" label="City" value={userdata.personalinfo.residentialaddress.city} width="24%" onChange={(e) => handleChange(e, "personalinfo.residentialaddress.city")}/>
+                            <FormTextField type="text" label="Province" value={userdata.personalinfo.residentialaddress.province} width="24%" onChange={(e) => handleChange(e, "personalinfo.residentialaddress.province")}/>
+                            <FormTextField type="number" label="Zipcode" value={userdata.personalinfo.residentialaddress.zipcode} width="24%" onChange={(e) => handleChange(e, "personalinfo.residentialaddress.zipcode")}/>
                         </div>
                     </div>
                     <div className="group_form">
                         <h5>Permanent Address</h5>
                         <div className='section'>
-                            <FormTextField type="text" label="House/Block/Lot No." data={userdata} path="personalinfo.permanentaddress.house" width="32%" onChange={handleChange}/>
-                            <FormTextField type="text" label="Street" data={userdata} path="personalinfo.permanentaddress.street" width="32%" onChange={handleChange}/>
-                            <FormTextField type="text" label="Subdivision/Village" data={userdata} path="personalinfo.permanentaddress.subdivision" width="32%" onChange={handleChange}/>
+                            <FormTextField type="text" label="House/Block/Lot No." value={userdata.personalinfo.permanentaddress.house} width="32%" onChange={(e) => handleChange(e, "personalinfo.permanentaddress.house")}/>
+                            <FormTextField type="text" label="Street" value={userdata.personalinfo.permanentaddress.street} width="32%" onChange={(e) => handleChange(e, "personalinfo.permanentaddress.street")}/>
+                            <FormTextField type="text" label="Subdivision/Village" value={userdata.personalinfo.permanentaddress.subdivision} width="32%" onChange={(e) => handleChange(e, "personalinfo.permanentaddress.subdivision")}/>
                         </div>
                         <div className='section'>
-                            <FormTextField type="text" label="Barangay" data={userdata} path="personalinfo.permanentaddress.barangay" width="24%" onChange={handleChange}/>
-                            <FormTextField type="text" label="City" data={userdata} path="personalinfo.permanentaddress.city" width="24%" onChange={handleChange}/>
-                            <FormTextField type="text" label="Province" data={userdata} path="personalinfo.permanentaddress.province" width="24%" onChange={handleChange}/>
-                            <FormTextField type="number" label="Zipcode" data={userdata} path="personalinfo.permanentaddress.zipcode" width="24%" onChange={handleChange}/>
+                            <FormTextField type="text" label="Barangay" value={userdata.personalinfo.permanentaddress.barangay} width="24%" onChange={(e) => handleChange(e, "personalinfo.permanentaddress.barangay")}/>
+                            <FormTextField type="text" label="City" value={userdata.personalinfo.permanentaddress.city} width="24%" onChange={(e) => handleChange(e, "personalinfo.permanentaddress.city")}/>
+                            <FormTextField type="text" label="Province" value={userdata.personalinfo.permanentaddress.province} width="24%" onChange={(e) => handleChange(e, "personalinfo.permanentaddress.province")}/>
+                            <FormTextField type="number" label="Zipcode" value={userdata.personalinfo.permanentaddress.zipcode} width="24%" onChange={(e) => handleChange(e, "personalinfo.permanentaddress.zipcode")}/>
                         </div>
                     </div>
+                    <div className="group_form">
+                        <div className='section'>
+                            <FormTextField type="text" label="Telephone No." value={userdata.personalinfo.telno} width="32%" onChange={(e) => handleChange(e, "personalinfo.telno")}/>
+                            <FormTextField type="text" label="Mobile No." value={userdata.personalinfo.mobileno} width="32%" onChange={(e) => handleChange(e, "personalinfo.mobileno")}/>
+                            <FormTextField type="text" label="Email" value={userdata.personalinfo.email} onChange={(e) => handleChange(e, "personalinfo.email")} width="32%" disable={true}/>
+                        </div>
+                    </div>
+
                     <div className="profile_tool">
                             <button className='positive_button' onClick={handleSave}>Save</button>
                         </div>

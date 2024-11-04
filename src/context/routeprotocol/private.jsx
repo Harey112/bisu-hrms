@@ -2,10 +2,10 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '../auth/authprovider';
 
 export function PrivateRoute({ children }){
-  const { userLoggedIn, loading } = useAuth();
+  const { userLoggedIn, authLoading } = useAuth();
   
 
-  if (loading) {
+  if (authLoading) {
     return <div>Loading...</div>;
   }
 

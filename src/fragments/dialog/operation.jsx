@@ -1,6 +1,7 @@
 import './style.css';
 
 function Operation(props){
+    
     return<>
     <div className="content_container center_child dialog_base">
         <div className="dialog center_child operation_dialog">

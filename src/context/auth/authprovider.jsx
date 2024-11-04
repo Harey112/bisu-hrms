@@ -13,7 +13,7 @@ export function useAuth(){
 export function AuthProvider({children}){
     const [currentUser, setCurrentUser] = useState(null);
     const [userLoggedIn, setUserLoggedIn] = useState(false);
-    const [loading, setLoading ] = useState(true);
+    const [authLoading, setLoading ] = useState(true);
 
     useEffect(()=>{
 
@@ -36,12 +36,12 @@ export function AuthProvider({children}){
     const [authData, setAuthData] = useState(null);
 
     useEffect(() => {
-        setAuthData({currentUser, userLoggedIn, loading});
-    },[currentUser, userLoggedIn, loading]);
+        setAuthData({currentUser, userLoggedIn, authLoading});
+    },[currentUser, userLoggedIn, authLoading]);
 
     return (
         <AuthContext.Provider value={authData}>
-            {!loading && children}
+            {!authLoading && children}
         </AuthContext.Provider>
     )
 }

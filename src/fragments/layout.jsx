@@ -50,7 +50,7 @@ function Layout(props){
         <Message title={props.message.title} message={props.message.message} button={props.message.button}/>
         }
 
-        {props.peration && 
+        {props.operation && 
         <Operation title={props.operation.title} message={props.operation.message}/>
         }
 

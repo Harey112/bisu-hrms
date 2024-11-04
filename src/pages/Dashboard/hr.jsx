@@ -11,9 +11,7 @@ function Dashboard() {
     const [message, setMessage] = useState(undefined);
     const [operation, setOperation] = useState(undefined);
     const [customContent, setCustomContent] = useState(undefined);
-
-    const {user} = useUser();
-    console.log(user);
+    
     
     
     const menu = [

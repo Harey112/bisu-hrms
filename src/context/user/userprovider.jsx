@@ -2,18 +2,23 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useAuth } from '../auth/authprovider';
 import { db } from '../../firebase-config';
+import { reload } from 'firebase/auth';
 
 const UserContext = createContext();
 
+
+
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [userLoading, setLoading ] = useState(true);
     const [refresh, triggerRefresh] = useState(null);
+    const {currentUser, userLoggedIn, authLoading} = useAuth();
 
 
-    const {currentUser, userLoggedIn} = useAuth();
 
 
     const saveNewData = async(data)=>{
+        data.personalinfo.email = currentUser.email;
         try {
             const docRef = doc(db, "User", currentUser.uid, 'data', 'personal');
             await setDoc(docRef, data);
@@ -26,30 +31,32 @@ export const UserProvider = ({ children }) => {
 
 
     useEffect(() => {
-        async function fetchData() {
-            const docRef = doc(db, "User", currentUser.uid, 'data', 'personal');
-            const data = await getDoc(docRef);
-            setUser(data.data())
-        }
-        
-        if(currentUser.uid){
-        
-            fetchData();
+
+        const reloadData = async ()=>{
+            setLoading(true);
+            try {
+                const docRef = doc(db, "User", currentUser.uid, 'data', 'personal');
+                const data = await getDoc(docRef);
+                setUser(data.data());
+                setLoading(false);
+            } catch (error) {
+                console.log(error);
+                setLoading(true);
+                
+            }
+        };
+
+        if(!authLoading && userLoggedIn){
+            
+            reloadData();
         }
     }, [refresh]);
-    
 
-    useEffect((currentUser) => {
-        
-        if (userLoggedIn) {
-            sessionStorage.setItem('user', JSON.stringify(user));
-        }else{
-            sessionStorage.removeItem('user')
-        }
-    }, [user, userLoggedIn, currentUser]);
+
+
 
     return (
-        <UserContext.Provider value={{user, saveNewData}}>
+        <UserContext.Provider value={{user, userLoading, saveNewData}}>
         {children}
         </UserContext.Provider>
     );

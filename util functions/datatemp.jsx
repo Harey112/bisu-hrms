@@ -17,6 +17,9 @@ export var data = {
         sssno: '',
         tinno: '',
         agencyemployeeno: '',
+        telno: '',
+        mobileno: '',
+        email: '',
         residentialaddress: {
             house: '',
             street: '',
