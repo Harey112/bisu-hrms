@@ -36,9 +36,9 @@ function Employees() {
 
 
     const AddNewEmployee = () => {
-        const [newEmployee, setNewEmployee] = useState({firstname: '', lastname: '', email: '', department: '', role: ''});
+        const [newEmployee, setNewEmployee] = useState({firstname: '', lastname: '', email: '', organization: '', role: ''});
+        const [addMessage, setAddMessage] = useState({message: "Sample Message", color: "black"});
         const handleNewEmployeeChange = (event) => {
-            console.log(event.target);
             
             try {
                 const { name, value } = event.target;
@@ -46,6 +46,9 @@ function Employees() {
             } catch (error) {
                 setError({title: "Add Employee Failed", message: error.message, button: { label: "Okay", action: () => { setError(null); } } });
             }
+
+            console.log(newEmployee);
+            
         };
     
     
@@ -53,17 +56,17 @@ function Employees() {
     
     
     return (
-        <form id="add_employee_form" method="POST" action="" >
-            <FormTextField type="text" label="Firstname" name="firstname" width="80%" required={true} value={newEmployee.firstname} onChange={(e)=>handleNewEmployeeChange(e)}/>
-            <FormTextField type="text" label="Lastname" name="lastname" width="80%" required={true} value={newEmployee.lastname} onChange={(e)=>handleNewEmployeeChange(e)}/>
-            <FormTextField type="text" label="Email" name="email" width="80%" required={true} value={newEmployee.email} onChange={(e)=>handleNewEmployeeChange(e)}/>
-            <FormTextField type="text" label="Department" name="department" width="80%" required={true} value={newEmployee.department} onChange={(e)=>handleNewEmployeeChange(e)}/>
-            <FormTextField type="text" label="Role" name="role" width="80%" required={true} value={newEmployee.role} onChange={(e)=>handleNewEmployeeChange(e)}/>
+        <form id="add_employee_form" >
+            <FormTextField type="text" label="Firstname" name="firstname" width="100%" required={true} value={newEmployee.firstname} onChange={(e)=>handleNewEmployeeChange(e)}/>
+            <FormTextField type="text" label="Lastname" name="lastname" width="100%" required={true} value={newEmployee.lastname} onChange={(e)=>handleNewEmployeeChange(e)}/>
+            <FormTextField type="text" label="Email" name="email" width="100%" required={true} value={newEmployee.email} onChange={(e)=>handleNewEmployeeChange(e)}/>
+            <FormTextField type="text" label="Department" name="organization" width="100%" required={true} value={newEmployee.organization} onChange={(e)=>handleNewEmployeeChange(e)}/>
+            <FormTextField type="text" label="Role" name="role" width="100%" required={true} value={newEmployee.role} onChange={(e)=>handleNewEmployeeChange(e)}/>
             <div >
                 <button type="button" className="neutral_button" onClick={()=> {setCustomContent(undefined)}}>Cancel</button>
                 <button type="submit" className="positive_button">Add Employee</button>
             </div>
-            <p>Messages Here</p>
+            <p style={{color: addMessage.color}}>{addMessage.message}</p>
         </form> );
     }
 

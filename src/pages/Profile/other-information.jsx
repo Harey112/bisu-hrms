@@ -198,7 +198,7 @@ function OtherInformation() {
                             <table className='profile_table'>
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th style={{width: "20px"}}>#</th>
                                         <th className='action_cell' >Action</th>
                                         <th>Special Skills and Hobbies</th>
                                     </tr>
@@ -235,7 +235,7 @@ function OtherInformation() {
                         <table className='profile_table'>
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th style={{width: "20px"}}>#</th>
                                     <th className='action_cell' >Action</th>
                                     <th>Non-academic Distinction/Recognition</th>
                                     </tr>
@@ -272,7 +272,7 @@ function OtherInformation() {
                         <table className='profile_table'>
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th style={{width: "20px"}}>#</th>
                                     <th className='action_cell' >Action</th>
                                     <th>Membership in Association/Organization</th>
                                 </tr>

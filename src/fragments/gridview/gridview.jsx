@@ -1,18 +1,24 @@
 import './style.css';
-import icons from "../../assets/icons";
+import React from 'react'
 
-function GridView(props){
-
-    return <>
+function GridView(props) {
+    return (
         <div id="listview_container" className="content_container">
-            <ul>
-                {props.items.map((item, i)=>{
-                    return <li key={i} className={props.contentClassName} style={{width: props.itemDimension.width, height: props.itemDimension.height}} >{props.contentFunction(item)}</li>
+            <div>
+                {props.items.map((data, i) => {
+                    return (
+                        <div
+                            key={i}
+                            className={props.contentClassName}
+                            style={{ width: props.itemDimension.width, height: props.itemDimension.height }}
+                        >
+                            {React.createElement(props.contentComponent, { ...data })}
+                        </div>
+                    );
                 })}
-            </ul>
+            </div>
         </div>
-    </>
+    );
 }
-
 
 export default GridView;

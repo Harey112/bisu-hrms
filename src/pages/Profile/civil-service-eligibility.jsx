@@ -184,7 +184,7 @@ function CivilServiceEligibility() {
                             <table className='profile_table'>
                                 <thead>
                                     <tr>
-                                        <th rowSpan="2">#</th>
+                                        <th rowSpan="2" style={{width: "20px"}}>#</th>
                                         <th rowSpan="2">Action</th>
                                         <th rowSpan="2">Professional Certifications </th>
                                         <th rowSpan="2">Rating</th>

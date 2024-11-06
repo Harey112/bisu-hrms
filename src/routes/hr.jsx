@@ -16,6 +16,7 @@ import CivilServiceEligibility from '../pages/Profile/civil-service-eligibility'
 import VoluntaryWork from '../pages/Profile/voluntary-work';
 import LearningDevelopmentProgramAttended from '../pages/Profile/learning-development-program-attended';
 import OtherInformation from '../pages/Profile/other-information';
+import ViewDepartment from '../pages/Department/view';
 
 
 
@@ -25,6 +26,7 @@ function HRRoutes() {
             <Route path='/' element={<Navigate to='/dashboard'/>}/>
             <Route path='/dashboard' element={ <Dashboard/> }/>
             <Route path='/department' element={ <Department/> }/>
+            <Route path='/department/view' element={ <ViewDepartment/> }/>
             <Route path='/college' element={ <College/> }/>
             <Route path='/employees' element={ <Employees/> }/>
             <Route path='/attendance' element={ <Attendance/> }/>

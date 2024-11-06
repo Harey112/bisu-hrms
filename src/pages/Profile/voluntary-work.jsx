@@ -178,7 +178,7 @@ function VoluntaryWork() {
                             <table className='profile_table'>
                                 <thead>
                                     <tr>
-                                        <th rowSpan="2">#</th>
+                                        <th rowSpan="2" style={{width: "20px"}}>#</th>
                                         <th rowSpan="2">Action</th>
                                         <th rowSpan="2">Name of Organization</th>
                                         <th rowSpan="2">Address of Organization</th>
