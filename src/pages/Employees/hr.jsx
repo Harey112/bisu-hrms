@@ -22,7 +22,7 @@ function Employees() {
     const [message, setMessage] = useState(undefined);
     const [operation, setOperation] = useState(undefined);
     const [customContent, setCustomContent] = useState(undefined);
-    
+
     function employee_tile({name, img}){
         return <>
         <div onClick={() => actionFuntion(url)} className="content_container">
@@ -34,6 +34,41 @@ function Employees() {
         </>
     }
 
+
+    const AddNewEmployee = () => {
+        const [newEmployee, setNewEmployee] = useState({firstname: '', lastname: '', email: '', department: '', role: ''});
+        const handleNewEmployeeChange = (event) => {
+            console.log(event.target);
+            
+            try {
+                const { name, value } = event.target;
+                setNewEmployee({...newEmployee, [name]: value});
+            } catch (error) {
+                setError({title: "Add Employee Failed", message: error.message, button: { label: "Okay", action: () => { setError(null); } } });
+            }
+        };
+    
+    
+    
+    
+    
+    return (
+        <form id="add_employee_form" method="POST" action="" >
+            <FormTextField type="text" label="Firstname" name="firstname" width="80%" required={true} value={newEmployee.firstname} onChange={(e)=>handleNewEmployeeChange(e)}/>
+            <FormTextField type="text" label="Lastname" name="lastname" width="80%" required={true} value={newEmployee.lastname} onChange={(e)=>handleNewEmployeeChange(e)}/>
+            <FormTextField type="text" label="Email" name="email" width="80%" required={true} value={newEmployee.email} onChange={(e)=>handleNewEmployeeChange(e)}/>
+            <FormTextField type="text" label="Department" name="department" width="80%" required={true} value={newEmployee.department} onChange={(e)=>handleNewEmployeeChange(e)}/>
+            <FormTextField type="text" label="Role" name="role" width="80%" required={true} value={newEmployee.role} onChange={(e)=>handleNewEmployeeChange(e)}/>
+            <div >
+                <button type="button" className="neutral_button" onClick={()=> {setCustomContent(undefined)}}>Cancel</button>
+                <button type="submit" className="positive_button">Add Employee</button>
+            </div>
+            <p>Messages Here</p>
+        </form> );
+    }
+
+
+
     const [employees, setEmployees] = useState([
         {name: 'Juan Dela Cruz', img: '#', url:"#", actionFuntion: (arg)=>{console.log(arg);}},
         {name: 'Juan Dela Cruz', img: '#', url:"#", actionFuntion: (arg)=>{console.log(arg);}},
@@ -41,26 +76,6 @@ function Employees() {
         {name: 'Juan Dela Cruz', img: '#', url:"#", actionFuntion: (arg)=>{console.log(arg);}},        
     ]);
 
-
-    const addEmployeeComponent = (
-        <form id="add_employee_form" method="POST" action="" >
-            <FormTextField type="text" label="Firstname" name="firstname" width="80%" required={true}/>
-            <FormTextField type="text" label="Lastname" name="lastname" width="80%" required={true}/>
-            <FormTextField type="text" label="Email" name="email" width="80%" required={true}/>
-            <FormTextField type="text" label="Department" name="department" width="80%" required={true}/>
-            <FormTextField type="text" label="Role" name="role" width="80%" required={true}/>
-            <FormTextField type="text" label="User Type" name="usertype" width="80%" required={true}/>
-            <div >
-                <button type="button" className="neutral_button" onClick={()=> {setCustomContent(undefined)}}>Cancel</button>
-                <button type="submit" className="positive_button">Add Employee</button>
-            </div>
-            <p>Messages Here</p>
-        </form>
-    );
-
-
-
-    
 
 
     return (
@@ -75,7 +90,7 @@ function Employees() {
                                 <option value="">------------</option>
                             </select>
                         </form>
-                        <button onClick={()=> {setCustomContent({title: 'Add Employee', children: addEmployeeComponent})}} className="positive_button">+ Add Employee</button>
+                        <button onClick={()=> {setCustomContent({title: 'Add Employee', children: <AddNewEmployee/>})}} className="positive_button">+ Add Employee</button>
                     </div>
                     
                     <div id="list_container"> 

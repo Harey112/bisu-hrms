@@ -46,7 +46,7 @@ function EducationalBackground() {
 
 
 
-    const AddChild = () => {
+    const AddData = () => {
        
         const data = { level: 'Elementary', nameofschool: '', degree: '', periodofattendencefrom: '', periodofattendenceto: '', highestdegree: '', yeargraduated: '', scholarshipandaward: '' };
         const [newData, setNewData] = useState({ ...data });
@@ -131,7 +131,7 @@ function EducationalBackground() {
                 }));
                 
             } catch (error) {
-                setError({title: "Add Child Failed", message: error.message, button:{label: "Okay", action: () => {setError(null)}}});
+                setError({title: "Edit Failed", message: error.message, button:{label: "Okay", action: () => {setError(null)}}});
             }
             
             setCustomContent(null)
@@ -228,8 +228,14 @@ function EducationalBackground() {
                                             <td>{i+1}</td>
                                             <td className='action_cell'>
                                                 <div>
-                                                    <img src={icons.delete} alt="delete" onClick={() => { setPrompt({title: 'Delete '+data.nameofschool, message: 'Do you want to proceed?',  positiveAction: {label: "Delete", action: () => {handleDelete(i); setPrompt(null);}}, negativeAction:{label: "Cancel", action: () => {setPrompt(null)}} })}}/>
-                                                    <img src={icons.edit} alt="edit" onClick={() => {setCustomContent({title: 'Edit Child', children: <EditData index={i} data={{...data}}/>})}}/>
+                                                    <div>
+                                                        <img src={icons.delete} alt="delete" onClick={() => { setPrompt({title: 'Delete '+data.nameofschool, message: 'Do you want to proceed?',  positiveAction: {label: "Delete", action: () => {handleDelete(i); setPrompt(null);}}, negativeAction:{label: "Cancel", action: () => {setPrompt(null)}} })}}/>
+                                                        <span>Delete</span>
+                                                    </div>
+                                                    <div>
+                                                        <img src={icons.edit} alt="edit" onClick={() => {setCustomContent({title: 'Edit Child', children: <EditData index={i} data={{...data}}/>})}}/>
+                                                        <span>Edit</span>
+                                                    </div>
                                                 </div>
                                             </td>
                                             <td>{data.level}</td>
@@ -249,7 +255,7 @@ function EducationalBackground() {
                             </table>
                         </div>
                             <div className="profile_tool">
-                                <button className='positive_button' onClick={()=>{setCustomContent({title: 'Add Educational Background', children: <AddChild/>})}}>Add Record</button>
+                                <button className='positive_button' onClick={()=>{setCustomContent({title: 'Add Educational Background', children: <AddData/>})}}>Add Record</button>
                                 <button className='positive_button' onClick={() => { handleSave() }}>Save</button>
                             </div>
                 </div>

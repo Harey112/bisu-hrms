@@ -70,6 +70,7 @@
 
 .group_form{
     margin-top: 15px;
+    height: auto;
     display: flex;
     flex-direction: column;
     gap: 15px
@@ -94,8 +95,8 @@
 
 .profile_table{
     font-size: small;
-
     border-collapse: collapse;
+    height: auto;
 
 }
 
@@ -213,14 +214,37 @@
 
 
 .action_cell > div{
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
 
 
-.action_cell > div > img{
+.action_cell > div > div{
+    display: flex;
+    justify-content: center;
+}
+
+
+.action_cell > div > div > img{
+    position: relative;
     width: 20px;
+}
+
+.action_cell > div > div > img:hover + span{
+    visibility: visible;
+}
+
+
+.action_cell > div > div > span{
+    top: -25px;
+    font-size: small;
+    padding: 2px 5px;
+    background-color: #000000b3;
+    position: absolute;
+    color: #ffffff;
+    visibility: hidden;
 }
 
 

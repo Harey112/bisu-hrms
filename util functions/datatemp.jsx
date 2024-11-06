@@ -77,7 +77,11 @@ export var data = {
     workexperience: [],
     voluntarywork: [],
     ldpa: [],
-    otherinfo: []
+    otherinfo: {
+        specialskills: [],
+        nonacademic: [],
+        membership: []
+    }
 
 }
 

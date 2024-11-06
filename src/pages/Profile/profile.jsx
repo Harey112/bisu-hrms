@@ -4,7 +4,7 @@ import Layout from "../../fragments/layout";
 import icons from "../../assets/icons";
 import { useState, useEffect } from "react";
 import FormTextField from '../../fragments/form/textfield';
-import FormSelect from '../../fragments/form/select';
+import FormSelect from '../../fragments/form/select'
 import { data } from '../../../util functions/datatemp';
 
 function Profile() {

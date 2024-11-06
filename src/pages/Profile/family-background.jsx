@@ -101,8 +101,10 @@ function FamilyBackground() {
                 
                 setNewChild({ ...child }); 
                 setCustomContent(null); 
+                setOperation(null);
                 
             } catch (error) {
+                setOperation(null);
                 setError({ title: "Add Child Failed", message: error.message, button: { label: "Okay", action: () => { setError(null); } } });
             }
         };
@@ -289,8 +291,14 @@ function FamilyBackground() {
                                         <td className='center_text'>{i+1}</td>
                                         <td className='action_cell'>
                                             <div>
-                                                <img src={icons.delete} alt="delete" onClick={() => { setPrompt({title: 'Delete '+child.fullname, message: 'Do you want to proceed?',  positiveAction: {label: "Delete", action: () => {handleDelete(i); setPrompt(null);}}, negativeAction:{label: "Cancel", action: () => {setPrompt(null)}} })}}/>
-                                                <img src={icons.edit} alt="edit" onClick={() => {setCustomContent({title: 'Edit Child', children: <EditChild index={i} data={{...child}}/>})}}/>
+                                                <div>
+                                                    <img src={icons.delete} alt="delete" onClick={() => { setPrompt({title: 'Delete '+child.fullname, message: 'Do you want to proceed?',  positiveAction: {label: "Delete", action: () => {handleDelete(i); setPrompt(null);}}, negativeAction:{label: "Cancel", action: () => {setPrompt(null)}} })}}/>
+                                                    <span className="tooltip">Delete</span>
+                                                </div>
+                                                <div>
+                                                    <img src={icons.edit} alt="edit" onClick={() => {setCustomContent({title: 'Edit Child', children: <EditChild index={i} data={{...child}}/>})}}/>
+                                                    <span className="tooltip">Edit</span>
+                                                </div>
                                             </div>
                                         </td>
                                         <td>{child.fullname}</td>
